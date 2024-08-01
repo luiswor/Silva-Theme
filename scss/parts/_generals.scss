@@ -1,0 +1,191 @@
+@import "../utils/utils";
+
+body {
+  font-family: var(--font-base, 'Roboto'), sans-serif;
+  line-height: 1.6;
+  background-color: var(--body-bg, $bg_institutional);
+  padding-top: var(--header-h, $header-h);
+
+  &.page-template {
+    --header-h: 0;
+  }
+
+  &.logged-in {
+    --wp-bar-h: 32px;
+  }
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--color-base, $text-color-base);
+}
+
+
+.main {
+  position: relative;
+  isolation: isolate;
+  z-index: 100;
+
+  &-texture {
+    width: auto;
+    height: 45vh;
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+
+    &.left {
+      left: 0;
+      top: 10vh;
+    }
+
+    &.right {
+      right: 0;
+      bottom: 10vh;
+    }
+  }
+
+  iframe {
+    border: solid 1px var(--accent, $color-accent-base);
+  }
+}
+
+.container,
+.main :where(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, .wp-block-embed, .wp-block-table) {
+    width: 100%;
+    padding-right: 1.2rem !important;
+    padding-left: 1.2rem !important;
+    margin-right: auto;
+    margin-left: auto;
+  
+    @include media('sm') {
+      max-width: 100%;
+    }
+  
+    @include media('md') {
+      max-width: 720px;
+    }
+  
+    @include media('lg') {
+      max-width: 960px;
+    }
+  
+    @include media('xl') {
+      max-width: 1420px;
+    }
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba($color: #000000, $alpha: 0.2);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  ::-webkit-scrollbar-horizontal {
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track-piece {
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb-horizontal {
+    background-color: #888;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb-horizontal:hover {
+    background-color: #555;
+  }
+  
+
+  .wp-block-embed iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1920/1080;
+  }
+
+  table {
+
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    backdrop-filter: blur(10px);
+
+    thead, tfoot {
+      border-top: none !important;
+      border-bottom: none !important;
+      color: var(--accent, $color-accent-base);
+      font-weight: 700;
+    }
+  }
+  
+  .wp-block-table td, .wp-block-table th {
+    border: solid 1px rgba($color: #fff, $alpha: 0.1);
+
+  }
+
+  .no-result {
+    width: max-content;
+    height: max-content;
+    margin: 0 auto;
+    font-style: italic;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    padding: .5rem 1rem !important;
+    border-radius: .5rem;
+    opacity: .5;
+  }
+
+  a {
+    text-decoration: none;
+    &:active, &:focus, &:visited {
+      text-decoration: none !important;
+    }
+  }
+
+  #breadcrumbs {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: -1rem;
+    filter: brightness(0.5);
+    text-decoration: none;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        filter: brightness(1);
+      }
+    }
+}
+
+.scrim {
+  background-color: rgba($color: #000000, $alpha: 0.8) !important;
+  backdrop-filter: blur(10px);
+}
+
+.wpcf7-form {
+  
+  :where(input, select, textarea) {
+    padding: .6rem 1rem;
+    border-radius: 10px;
+    background-color: transparent;
+    border: solid 2px #494949;
+    color: white;
+  }
+}

@@ -1,0 +1,35 @@
+/*
+font-family: 'Merriweather', serif;
+font-family: 'Merriweather Sans', sans-serif;
+font-family: 'Open Sans', sans-serif;
+*/
+
+$p_font: 'Roboto', serif;
+$s_font: 'Merriweather Sans', sans-serif;
+$t_font: 'Open Sans', sans-serif;
+
+$font-title-base: 'Ubuntu';
+$font-text-base: 'Roboto';
+
+$white: #fff;
+$black: #000;
+$color_institutional: #00295e;
+$bg_institutional: #19191a;
+
+$text-color-base: #d1d1d1;
+$color-accent-base: #083f87;
+$bg_color: $bg_institutional;
+
+$btn-bg-base: $color_institutional;
+$btn-color-base: #fff;
+$btn-border-color: $color-accent-base;
+
+$header-h: 4rem;
+
+// Definir variables para los puntos de quiebre
+$breakpoints: (
+  'sm': 480px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1200px
+);

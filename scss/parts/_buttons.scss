@@ -1,0 +1,49 @@
+@import "../utils/utils";
+
+.main :where(.wp-element-button, .wp-block-button__link, .btn) {
+    display: block;
+    position: relative;
+    font-family: var(--font-text, $font-text-base), sans-serif;
+    color: var(--btn-color, $btn-color-base);
+    background-color: var(--btn-bg, $btn-bg-base);
+    border: var(--btn-border, solid 3px $btn-border-color);
+    border-radius: var(--btn-radius, 0); 
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 250ms ease;
+    --angle: var(--btn-angle, 10px);
+    clip-path: polygon(var(--angle) 0%,100% 0,100% 80%,calc(100% - var(--angle)) 100%,0 100%,0% 20%);
+    padding: .7rem 1.3rem;
+
+    &.small {
+        padding: .4rem 1rem;
+    }
+
+    &::before, &::after {
+        content: "";
+        width: hypot(var(--angle), var(--angle));;
+        height: 3px;
+        background-color: $btn-border-color;
+        position: absolute;
+    }
+
+    &::before {
+        bottom: 2px;
+        right: -3px;
+        rotate: 135deg;
+    }
+
+    &::after {
+        top: 0;
+        left: -3px;
+        rotate: 135deg;
+    }
+    &:active, &:visited {
+        background-color: var(--btn-bg, $btn-bg-base);
+        color: var(--btn-color, $btn-color-base);
+    } 
+    &:hover {
+        filter: brightness(1.4); 
+    }
+}

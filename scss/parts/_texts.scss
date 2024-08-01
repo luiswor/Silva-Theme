@@ -1,0 +1,258 @@
+
+@import "../utils/utils";
+
+.main {
+    :where(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote) {
+        padding: 1rem;
+    }
+
+    :where(h1, h2, h3, h4, h5, h6, .title) {
+        font-family: var(--font-title, $font-title-base), sans-serif;
+        font-weight: 700;
+    }
+    :where(h1, h2, h3, h4, h5, h6, p) {
+        margin-bottom: var(--text-mb, 1rem);
+
+        strong {
+            color: var(--accent);
+        }
+    }
+    :where(p, ul, li, a, span, blockquote){
+        font-family: var(--font-text, $font-text-base), sans-serif;
+    }
+
+    blockquote {
+        max-width: 90%;
+        position: relative;
+        background-color: #0000004f;
+        
+        @include media('lg') {
+            max-width: 70%;
+        }
+
+        &::before, &::after {
+            content: "";
+            width: 2rem;
+            height: 2rem;
+            border-style: solid;
+            border-radius: var(--detail-radius, 0);
+            border-color: var(--quote-detail-color, $color-accent-base);
+            position: absolute;
+            --width-border: clamp(2px, 1vw, 5px);
+        }
+
+        &::before {
+            top: 0;
+            left: 0;
+            border-width: var(--width-border) 0 0 var(--width-border);
+        }
+        &::after {
+            bottom: 0;
+            right: 0;
+            border-width: 0 var(--width-border) var(--width-border) 0;
+        }
+
+        cite {
+            width: 100%;
+            padding: 0 1rem;
+            text-align: right;
+            font-style: italic;
+        }
+
+
+    }
+
+
+    ol {
+        list-style: decimal;
+    }
+    ul{
+        list-style: disc;
+    }
+    :where(ol, ul) {
+        list-style-position: inside;
+    }
+
+
+    :where(h1, .h1) {
+        font-size: 2rem;
+    }
+
+    :where(h2, .h2) {
+        font-size: 1.75rem;
+    }
+
+    :where(h3, .h3) {
+        font-size: 1.5rem;
+    }
+
+    :where(h4, .h4) {
+        font-size: 1.25rem;
+    }
+
+    :where(h5, .h5) {
+        font-size: 1rem;
+    }
+
+    :where(h6, .h6) {
+        font-size: 0.875rem;
+    }
+
+    :where(.h7) {
+        font-size: 0.65rem;
+    }
+    
+    :where(p, ul, ol) {
+        font-size: 1rem;
+    }
+
+
+    p {
+        b, strong, em {
+            color: $white;
+        }
+
+        a {
+            color: var(--link-color, $white);
+            background-color: var(--link-bg, transparent);
+            //border-bottom: solid 3px var(--link-border, $color-accent-base);
+        }    
+    }
+
+    .small {
+        font-size: .7rem;
+    }
+
+
+    .banner {
+        background-color: var(--accent, $color-accent-base);
+        box-shadow: 0 0 0 100vmax var(--accent, $color-accent-base);
+        clip-path: inset(0 -100vmax);
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media (min-width: 600px) {
+    .main {
+
+        :where(h1, .h1) {
+            font-size: 2.5rem;
+        }
+    
+        :where(h2, .h2) {
+            font-size: 2.25rem;
+        }
+
+        :where(h3, .h3) {
+            font-size: 2rem;
+        }
+
+        :where(h4, .h4) {
+            font-size: 1.75rem;
+        }
+
+        :where(h5, .h5) {
+            font-size: 1.5rem;
+        }
+
+        :where(h6, .h6) {
+            font-size: 1.25rem;
+        }
+
+        :where(.h7) {
+            font-size: 1rem;
+        }
+
+        :where(p, ul, ol) {
+            font-size: 1.125rem;
+        }
+
+        .small {
+            font-size: .95rem;
+        }
+    }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 768px) {
+.main {
+    
+    :where(h1, .h1) {
+        font-size: 3rem;
+    }
+
+    :where(h2, .h2) {
+        font-size: 2.75rem;
+    }
+
+    :where(h3, .h3) {
+        font-size: 2.5rem;
+    }
+
+    :where(h4, .h4) {
+        font-size: 2.25rem;
+    }
+
+    :where(h5, .h5) {
+        font-size: 2rem;
+    }
+
+    :where(h6, .h6) {
+        font-size: 1.75rem;
+    }
+
+    :where(.h7) {
+        font-size: 1.2rem;
+    }
+
+    :where(p, ul, ol) {
+        font-size: 1.25rem;
+    }
+
+    .small {
+        font-size: 1rem;
+    }
+}
+}
+
+/* Extra Large Devices (Large Desktops) */
+@media (min-width: 992px) {
+.main {
+
+    :where(h1, .h1) {
+        font-size: 3.5rem;
+    }
+
+    :where(h2, .h2) {
+        font-size: 3rem;
+    }
+
+    :where(h3, .h3) {
+        font-size: 2.75rem;
+    }
+
+    :where(h4, .h4) {
+        font-size: 2.5rem;
+    }
+
+    :where(h5, .h5) {
+        font-size: 2.25rem;
+    }
+
+    :where(h6, .h6) {
+        font-size: 2rem;
+    }
+
+    :where(.h7) {
+        font-size: 1.7rem;
+    }
+
+    :where(p, ul, ol) {
+        font-size: 1.375rem;
+    }
+
+    .small {
+        font-size: 1.05rem;
+    }
+}
+}

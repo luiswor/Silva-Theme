@@ -1,0 +1,162 @@
+@import "./vars";
+
+// MIXINS
+
+// Mixin para medios responsivos
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint named `#{$breakpoint}` found in map.";
+  }
+}
+
+// Función para oscurecer el color utilizando mix()
+@function darken($color, $amount) {
+  @return mix(black, $color, $amount);
+}
+ 
+// @mixin xxs {
+//     @media screen and (max-width: 450px) {
+//         @content;
+//     }
+// }
+
+// @mixin xs {
+//   @media screen and (max-width: 576px) {
+//     @content;
+//   }
+// }
+
+// @mixin sm {
+//   @media screen and (max-width: 768px) {
+//     @content;
+//   }
+// }
+
+// @mixin md {
+//   @media screen and (max-width: 992px) {
+//     @content;
+//   }
+// }
+
+// @mixin lg {
+//   @media screen and (max-width: 1200px) {
+//     @content;
+//   }
+// }
+
+// @mixin xl {
+//   @media screen and (max-width: 1450px) {
+//     @content;
+//   }
+// }
+
+// @mixin small {
+//   @media screen and (min-width: 1200px) {
+//     @content;
+//   }
+// }
+// @mixin middle {
+//   @media screen and (min-width: 1200px) {
+//     @content;
+//   }
+// }
+// @mixin full {
+//   @media screen and (min-width: 1200px) {
+//     @content;
+//   }
+// }
+
+//ZINDEX
+$z-index: (
+  splash             : 900,
+  modal              : 800,
+  header             : 500,
+  navigation         : 100,
+  footer             : 90,
+  triangle           : 60,
+  navigation-rainbow : 50,
+  share-type         : 41,
+  share              : 40,
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
+
+// FONT MIXINS
+@function toRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font($family, $weight, $size, $style) {
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+    font-size: toRem($size);
+    font-style: $style;
+}
+
+@mixin font-size($size) {
+    font-size: toRem($size);
+}
+
+@function calculateEm($size) {
+    $emSize: $size / 16px;
+    @return $emSize * 1em;
+}
+
+@mixin line-height($size) {
+    line-height: toRem($size);
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+    padding-top: calculateEm($top);
+    padding-right: calculateEm($right);
+    padding-bottom: calculateEm($bottom);
+    padding-left: calculateEm($left);
+}
+
+// CUSTOM SCROLLBAR
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+.rs {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

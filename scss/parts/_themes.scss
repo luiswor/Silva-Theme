@@ -1,0 +1,250 @@
+.theme {
+    --body-bg: #19191a;
+
+    --nav-menu-link-color: #fff;
+
+    --color-base: #fff;
+    --font-base: 'Roboto';
+    --font-title: 'Ubuntu';
+    --font-text: 'Roboto';
+}
+
+.page-template {
+
+    .hero {
+        border-radius: 0 0 3rem 3rem;
+    }
+
+    &-benelli {
+        --font-title: 'Poppins';
+        --font-text: 'Poppins';
+        --accent: #009E3D;
+        --light: #fff;
+        --dark: #13110C;
+        --nav-brand-bg: #13110C;
+        --quote-detail-color: #009E3D;
+        --counterup-number-color: #009E3D;
+        --btn-bg: #004219;;
+        --btn-border: solid 3px #009E3D;;
+        --btn-angle: 0;
+        --btn-radius: 5px;
+    }
+
+    &-cfmoto {
+        --font-title: 'Teko';
+        --font-text: 'Roboto';
+        --accent: #00A1BB;
+        --light: #fff;
+        --dark: #000;
+        --nav-brand-bg: #000;
+        --quote-detail-color: #00A1BB;
+        --counterup-number-color: #00A1BB;
+        --detail-radius: .6rem;
+        --btn-bg: #004b56;
+        --btn-border: solid 3px #00A1BB;
+        --btn-angle: 0;
+        --btn-radius: 1rem;
+
+        :where(table, blockquote, img, .swiper-slide) {
+            border-radius: .6rem;
+        }
+
+        .model_hero_img {
+            position: relative;
+            isolation: isolate;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: -1;
+                width: 90%;
+                height: auto;
+                aspect-ratio: 1;
+                background-color: var(--accent);
+                //border: solid 2.5vw var(--accent, transparent);
+                border-radius: 50%;
+                translate: -50% -50% 0;
+                box-shadow: 0 0 0px 10vw #00000021;
+
+                @include media('md') {
+                    max-width: 50vw;
+                }
+            }
+        }
+    }
+
+    &-changan-auto, &-changan {
+        --font-title: "Roboto";
+        --font-text: "Roboto";
+        --accent: #002376;
+        --light: #fff;
+        --dark: #D6E0E7;
+        --nav-brand-bg: #002376;
+        --quote-detail-color: #00A1BB;
+        --counterup-number-color: #00A1BB;
+        --detail-radius: .6rem;
+        --body-bg: #0a0f17;
+        --btn-bg: #080d1b;
+        --btn-border: solid 3px #002376;
+        --btn-angle: 0;
+        --btn-radius: 1rem;
+        --nav-brand-bg: #bdbdbd
+        background-image: url(../assets/changan-pattern.png);
+
+        :where(h1, h2, h3) {
+            text-decoration: underline double 2px #002376;
+            text-underline-offset: 10px;
+        }
+
+        .header-brands-nav img {
+            filter: contrast(0);
+        }
+    }
+
+    &-haval {
+        --font-title: 'Montserrat';
+        --font-text: 'Montserrat';
+        --accent: #ffffff;
+        --light: #fff;
+        --dark: #4b4b4b;
+        --nav-brand-bg: #000000;
+        --quote-detail-color: #00A1BB;
+        --counterup-number-color: #00A1BB;
+        --detail-radius: .6rem;
+        --body-bg: #0a0f17;
+        --btn-bg: #0a0f17;
+        --btn-border: solid 3px #878787;
+        --btn-angle: 0;
+        --btn-radius: 5px;
+
+        .main img {
+            background: linear-gradient(#000, #000), linear-gradient(-72deg, #dedede, #ffffff 16%, #dedede 21%, #ffffff 24%, #454545 27%, #dedede 36%, #ffffff 45%, #ffffff 60%, #dedede 72%, #ffffff 80%, #dedede 84%, #a1a1a1);
+            border: 5px solid transparent;
+            background-repeat: no-repeat;
+            background-origin: padding-box, border-box;
+        }
+
+        .main blockquote::before, .main blockquote::after,
+        .imgtext-grid_content::after {
+            display: none;
+        }
+
+        :where(h1, h2, h3, h4, .counterup_number) {
+            background: linear-gradient(to bottom, #757575 27%, #b4b4b4 40%, #4c4c4c 78%); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #fff;
+            position: relative;
+            text-transform: uppercase;	
+            filter: drop-shadow(0px 0px 2px black);
+        
+            &::after {
+                background: none;
+                content: attr(data-heading) / "";
+                left: 0;
+                top: 0;
+                z-index: -1;
+                position: absolute;
+                text-shadow: 
+                    -1px 0 1px #202020, 
+                    0 1px 1px #1e1e1e, 
+                    5px 5px 10px rgba(0, 0, 0, 0.4),
+                    -5px -5px 10px rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+
+    &-husqvarna {
+        --body-bg: #f1f1f1;
+        --font-title: 'Roboto';
+        --font-text: 'Roboto';
+        --font-alter: 'Caveat';
+        --font-alter2: 'Gochi';
+        --accent: #FFE900;
+        --light: #fff;
+        --dark: #002251;
+        --nav-brand-bg: #FFE900;
+        --quote-detail-color: #FFE900;
+        --counterup-number-color: #FFE900;
+        --detail-radius: .2rem;
+        // --btn-bg: #25230f;
+        --btn-bg: #FFE900;
+        --btn-color: #002251;
+        --btn-border: solid 3px #002251;
+        --btn-angle: 0;
+        --btn-radius: 0;
+
+        .header-brands-nav {
+            background-color: var(--accent);
+            color: #002251;
+
+            a {
+                color:#002251;
+            }
+        }
+
+        :where(h1, h2, h3) {
+            position: relative;
+            isolation: isolate;
+            //text-shadow: 0 0 20px #000, 0 0 5px #000, 0 0 40px #000;
+
+            &::after {
+                content: "";
+                width: 60%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                translate: -50% 0 0;
+                z-index: -1;
+                background-image: url('../assets/husqvarna-texture.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        .main :where(h1,h2, h3,h4,h5,h6, p) {
+            color:var(--text-color, #002251);
+        }
+
+        .contact-info {
+            --text-color: #f1f1f1;
+        }
+    }
+
+    &-motoplex {
+        --font-title: 'Raleway';
+        --font-text: 'Raleway';
+        --accent: #d00000;
+        --light: #fff;
+        --dark: #000;
+        --nav-brand-bg: #000;
+        --quote-detail-color: #d00000;
+        --counterup-number-color: #d00000;
+        --btn-bg: #000;
+        --btn-border: solid 4px #d00000;
+        --btn-angle: 0;
+        --btn-radius: 4rem;
+
+        .header-brands-nav {
+            background-color: #000;
+            border: solid 2px var(--accent);
+            color: #fff;
+
+            img {
+                filter: invert(1) grayscale(1);
+            }
+
+            a {
+                color:#fff;
+            }
+        }
+
+        .main > :where(h1, h2, h3) {
+            position: relative;
+        }
+
+    }
+}
